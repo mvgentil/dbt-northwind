@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: stg_customers
+    column: 
+      - name: customer_id
+        data_test:
+          - unique
+          - not_null
+      - name: company_name
+      - name: contact_name
+        data_test:
+          - not_null
+      - name: contact_title
+      - name: address
+      - name: city
+      - name: region
+      - name: postal_code
+      - name: country
+      - name: phone
+        data_test:
+          - not_null
+      - name: fax
+
+  - name: stg_orders
+    column: 
+      - name: order_id
+        data_test:
+          - unique
+          - not_null
+      - name: customer_id
+        data_test:
+          - not_null
+          - relationship: 
+              to: stg_customers
+              field: customer_id
+      - name: employee_id
+        data_test:
+          - not_null
+      - name: order_date
+        data_test:
+          - not_null
+      - name: required_date
+        data_test:
+          - not_null
+      - name: shipped_date
+      - name: ship_via
+        data_test:
+          - not_null
+      - name: freight
+        data_test:
+          - not_null
+      - name: ship_name
+        data_test:
+          - not_null
+      - name: ship_address
+      - name: ship_city
+      - name: ship_region
+      - name: ship_postal_code
+      - name: ship_country

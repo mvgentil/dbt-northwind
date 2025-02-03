@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: northwind_qe10
+    database: northwind_qe10
+    schema: public
+    tables:
+      - name: customers
+      - name: orders
